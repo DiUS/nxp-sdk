@@ -809,6 +809,7 @@ static int32_t mkfloatnumstr (char *numstr, void *nump, int32_t radix, uint32_t 
 
 static void fput_pad(int32_t c, int32_t curlen, int32_t field_width, int32_t *count, PUTCHAR_FUNC func_ptr, void *farg, int *max_count)
 {
+    (void)max_count;
     int32_t i;
 
     for (i = curlen; i < field_width; i++)

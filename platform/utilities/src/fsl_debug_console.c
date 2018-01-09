@@ -490,6 +490,7 @@ int debug_printf(const char  *fmt_s, ...)
 
 static int debug_putc(int ch, void* stream)
 {
+    (void)stream;
     const unsigned char c = (unsigned char) ch;
     /* Do nothing if the debug uart is not initialized.*/
     if (s_debugConsole.type == kDebugConsoleNone)
@@ -499,7 +500,6 @@ static int debug_putc(int ch, void* stream)
     s_debugConsole.ops.tx_union.Send(s_debugConsole.base, &c, 1);
 
     return 0;
-
 }
 
 int debug_putchar(int ch)
